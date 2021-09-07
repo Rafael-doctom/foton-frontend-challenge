@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import "./book.css"
 import { useParams } from "react-router-dom";
-import Svg from "./svg";
+import { BookImgWrapper, Author, Header, GoBackLink } from "./styles";
+import { BiArrowBack } from "react-icons/bi"
 import axios from "axios";
 
 function Book() {
@@ -21,7 +21,6 @@ function Book() {
             } else {
                 console.error("deu ruim")
             }
-            console.log(bookData)
         } catch(e) {
             setBookData(undefined)
             console.log(e)
@@ -29,26 +28,31 @@ function Book() {
         
     }, []);
     console.log(bookData)
-  
-    return (
-        <>
-        {bookData != undefined &&
+    if(bookData != undefined){
+        return(
             <>
-                <header>
-                    <Svg/>
-                    {bookData.imageLinks === undefined ? 
-                        <img src={bookData.imageLinks.thumbnail} />
-                    :
-                        <img src={defaultImg} />
-                    }
-                </header>
+                <Header>
+                    <GoBackLink to="/"><BiArrowBack/></GoBackLink>
+                    <BookImgWrapper>
+                        {bookData.imageLinks != undefined ? 
+                            <img src={bookData.imageLinks.thumbnail} />
+                        :
+                            <img src={defaultImg}/>
+                        }
+                    </BookImgWrapper>
+                </Header>
                 <main>
                     <h1>{bookData.title}</h1>
+                    <Author>{bookData.authors || bookData.publisher}</Author>
+                    <p>{bookData.description}</p>
                 </main>
-        </>
-        }
-    </>
-  );
+            </>
+        )
+    } else {
+        return(
+            <h1>Loading book...</h1>
+        )
+    }
 }
 
 export default Book;
