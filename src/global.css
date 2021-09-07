@@ -1,0 +1,75 @@
+
+    @font-face {
+        font-family: 'SF Pro Display Regular';
+        font-style: normal;
+        font-weight: normal;
+        src: url('./fonts/sf-pro-display/SFPRODISPLAYREGULAR.woff') format('woff');
+        }
+        
+    
+        @font-face {
+        font-family: 'SF Pro Display Ultralight Italic';
+        font-style: normal;
+        font-weight: normal;
+        src: url('./fonts/sf-pro-display/SFPRODISPLAYULTRALIGHTITALIC.woff') format('woff');
+        }
+        
+    
+        @font-face {
+        font-family: 'SF Pro Display Thin Italic';
+        font-style: normal;
+        font-weight: normal;
+        src: url('./fonts/sf-pro-display/SFPRODISPLAYTHINITALIC.woff') format('woff');
+        }
+        
+    
+        @font-face {
+        font-family: 'SF Pro Display Light Italic';
+        font-style: normal;
+        font-weight: normal;
+        src: url('./fonts/sf-pro-display/SFPRODISPLAYLIGHTITALIC.woff') format('woff');
+        }
+        
+    
+        @font-face {
+        font-family: 'SF Pro Display Medium';
+        font-style: normal;
+        font-weight: normal;
+        src: url('./fonts/sf-pro-display/SFPRODISPLAYMEDIUM.woff') format('woff');
+        }
+        
+    
+        @font-face {
+        font-family: 'SF Pro Display Semibold Italic';
+        font-style: normal;
+        font-weight: normal;
+        src: url('./fonts/sf-pro-display/SFPRODISPLAYSEMIBOLDITALIC.woff') format('woff');
+        }
+        
+    
+        @font-face {
+        font-family: 'SF Pro Display Bold';
+        font-style: normal;
+        font-weight: normal;
+        src: url('./fonts/sf-pro-display/SFPRODISPLAYBOLD.woff') format('woff');
+        }
+        
+    
+        @font-face {
+        font-family: 'SF Pro Display Heavy Italic';
+        font-style: normal;
+        font-weight: normal;
+        src: url('./fonts/sf-pro-display/SFPRODISPLAYHEAVYITALIC.woff') format('woff');
+        }
+        
+    
+        @font-face {
+        font-family: 'SF Pro Display Black Italic';
+        font-style: normal;
+        font-weight: normal;
+        src: url('./fonts/sf-pro-display/SFPRODISPLAYBLACKITALIC.woff') format('woff');
+        }
+
+* {
+    font-family: SF Pro Display Medium;
+}
