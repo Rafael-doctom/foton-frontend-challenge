@@ -1,0 +1,24 @@
+header .search-input i {
+    
+}
+
+header h1{
+    color: #54565A;
+    width: 100%;
+    padding: 8px 0;
+}
+header b{
+    color: #ff6978;
+}
+
+.books {
+    
+}
+
+.books .book {
+    width: 40%;
+}
+
+.books .book h3, .books .book p{
+    
+}
