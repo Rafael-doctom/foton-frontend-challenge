@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import {VscSearch} from "react-icons/vsc"
-import {Header, SearchInputWrapper, SearchInput, SearchIcon, UserWelcomeText, UserName, Books, Book, BookTitle, BookAuthor} from './styles'
+import {Header, SearchInputWrapper, SearchInput, SearchIcon, UserWelcomeText, UserName, Books, Book, BookTitle, BookAuthor, BookImage, LinkDiv} from './styles'
 
 function Home() {
     const [search, setSearch] = useState("")
@@ -40,17 +40,24 @@ function Home() {
                 <Books>
                     {searchData.map((data, index) => {
                         return (
-                            <Book key={index}>
-                                {console.log(data, data.volumeInfo.title)}
-                                <img src={data.volumeInfo.imageLinks != undefined ? data.volumeInfo.imageLinks.thumbnail : defaultImg}/>
-                                <BookTitle>{data.volumeInfo.title}</BookTitle>
-                                <BookAuthor>by {data.volumeInfo.authors ? data.volumeInfo.authors : data.volumeInfo.publisher}</BookAuthor>
+                            <Book key={index} style={{ textDecoration: 'none' }}>
+                                <LinkDiv to={`/book/${data.id}`}>
+                                    <BookImage src={data.volumeInfo.imageLinks != undefined ? data.volumeInfo.imageLinks.thumbnail : defaultImg} />
+                                    <BookTitle>{data.volumeInfo.title}</BookTitle>
+                                    <BookAuthor>by {data.volumeInfo.authors ? data.volumeInfo.authors : data.volumeInfo.publisher}</BookAuthor>
+                                </LinkDiv>
                             </Book>
                         )
                     })}
                 </Books>
             :
-                <h1>lalalalal</h1>
+                <main>
+                    <h2>Discover new book!</h2>
+
+                    <section>
+                        
+                    </section>
+                </main>
             }
         </>
     )

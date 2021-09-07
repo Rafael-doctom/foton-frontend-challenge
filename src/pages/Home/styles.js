@@ -1,10 +1,18 @@
 import styled from "styled-components"
+import { Link } from "react-router-dom"
 
 const Header = styled.header`
     display: flex;
     flex-direction: column;
     background-image: linear-gradient(#ffe3c7a1 75%, #fff);
     text-align: center;
+
+    @media(min-width: 700px){
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: space-around;
+    }
 `
 
 const SearchInputWrapper = styled.div`
@@ -63,12 +71,28 @@ const BookTitle = styled.h3`
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    text-decoration: none;
 `
 
 const BookAuthor = styled.p`
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    margin-bottom: 13px;
+    text-decoration: none;
 `
 
-export { Header, SearchInputWrapper, SearchInput, SearchIcon, UserWelcomeText, UserName, Books, Book, BookTitle, BookAuthor }
+const BookImage = styled.img`
+    width: 45%;
+`
+
+const LinkDiv = styled(Link)`
+    color: #000;
+    text-decoration: none;
+
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
+`
+
+export { Header, SearchInputWrapper, SearchInput, SearchIcon, UserWelcomeText, UserName, Books, Book, BookTitle, BookAuthor, BookImage, LinkDiv }
