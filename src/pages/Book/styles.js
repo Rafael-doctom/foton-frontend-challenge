@@ -105,7 +105,7 @@ const BookImgWrapper = styled.div`
     }
     @media(min-width: 900px){
         img{
-            width: 30%;
+            width: 20%;
             position: initial;
         }
         svg{
@@ -114,7 +114,7 @@ const BookImgWrapper = styled.div`
     }
     @media(min-width: 1000px){
         img{
-            width: 20%;
+            width: 10%;
             position: initial;
         }
         svg{
@@ -123,7 +123,7 @@ const BookImgWrapper = styled.div`
     }
 `
 BookImgWrapper.defaultProps = {  
-    duration: '4s',
+    duration: '1.5s',
     delay: '0s',
     iterationCount: '1',
     direction: 'normal',
