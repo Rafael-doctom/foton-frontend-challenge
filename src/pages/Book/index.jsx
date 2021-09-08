@@ -44,7 +44,7 @@ function Book() {
                 <main>
                     <h1>{bookData.title}</h1>
                     <Author>{bookData.authors || bookData.publisher}</Author>
-                    <p>{bookData.description}</p>
+                    <p>{bookData.description || "This book dont have a description :("}</p>
                 </main>
             </>
         )
