@@ -34,7 +34,7 @@ const Header = styled.header`
     flex-direction: column;
     background-image: linear-gradient(#ffe3c7a1 75%, #fff);
     text-align: center;
-    margin-bottom: 13px;
+    margin-bottom: 23px;
     @media(min-width: 700px){
         display: flex;
         flex-direction: row-reverse;
@@ -58,7 +58,7 @@ const SearchInput = styled.input`
     padding: 16px;
     border-radius: 13px;
     border: none;
-    width: 80%;
+    width: 60%;
     outline: none;
     &:focus::placeholder {
         color: #000;
@@ -128,6 +128,7 @@ const BookAuthor = styled.p`
 `
 
 const BookImage = styled.img`
+    scroll-snap-align: start;
     width: 45%;
 `
 
@@ -140,4 +141,38 @@ const LinkDiv = styled(Link)`
     }
 `
 
-export { Header, SearchInputWrapper, SearchInput, SearchIcon, UserWelcomeText, UserName, Books, Book, BookTitle, BookAuthor, BookImage, LinkDiv }
+const BooksToDiscoverWrapper = styled.main`
+    width: 90%;
+    margin: 0 auto;
+`
+
+const BooksCarousel = styled.div`
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scrollbar-color: #000;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    ::-webkit-scrollbar-track
+    {
+        display: none;
+	    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	    border-radius: 10px;
+	    background-color: #F5F5F5;
+    }
+    ::-webkit-scrollbar
+    {
+        display: none;
+	    width: 12px;
+	    background-color: #f1f1f1;
+        color: #000;
+    }
+    ::-webkit-scrollbar-thumb
+    {
+	    border-radius: 10px;
+	    box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	    background-color: #1A8CD8;
+    }
+`
+
+export { Header, SearchInputWrapper, SearchInput, SearchIcon, UserWelcomeText, UserName, Books, Book, BookTitle, BookAuthor, BookImage, LinkDiv, BooksToDiscoverWrapper, BooksCarousel }
