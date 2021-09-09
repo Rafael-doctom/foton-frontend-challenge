@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { BookImgWrapper, Author, Header, GoBackLink } from "./styles";
-import { BiArrowBack } from "react-icons/bi"
+import { BookImgWrapper, Author, Header, GoBackLink, BookDetails, BookOptionsWrapper, BookOption } from "./styles";
+import { BiArrowBack, BiBookOpen } from "react-icons/bi"
+import {VscBookmark} from "react-icons/vsc"
+import {FiShare} from "react-icons/fi"
 import axios from "axios";
 
 function Book() {
@@ -33,19 +35,35 @@ function Book() {
             <>
                 <Header>
                     <GoBackLink to="/"><BiArrowBack/></GoBackLink>
-                    <BookImgWrapper>
-                        {bookData.imageLinks != undefined ? 
-                            <img src={bookData.imageLinks.thumbnail} />
+                    {bookData.imageLinks != undefined ? 
+                            <BookImgWrapper>
+                                <img src={bookData.imageLinks.thumbnail} />
+                                <BookOptionsWrapper>
+                                    <BookOption href={bookData.infoLink} target="_blank">
+                                        <BiBookOpen size="30"/>
+                                        <p>View Book</p>
+                                    </BookOption>
+                                    <BookOption>
+                                        <FiShare size="30"/>
+                                        <p>Share Book</p>
+                                    </BookOption>
+                                    <BookOption>
+                                        <VscBookmark size="30"/>
+                                        <p>Save book</p>
+                                    </BookOption>
+                                </BookOptionsWrapper>
+                            </BookImgWrapper>
                         :
-                            <img src={defaultImg}/>
+                            <BookImgWrapper>
+                                <img src={defaultImg}/>
+                            </BookImgWrapper>
                         }
-                    </BookImgWrapper>
                 </Header>
-                <main>
+                <BookDetails>
                     <h1>{bookData.title}</h1>
                     <Author>{bookData.authors || bookData.publisher}</Author>
                     <p>{bookData.description || "This book dont have a description :("}</p>
-                </main>
+                </BookDetails>
             </>
         )
     } else {
