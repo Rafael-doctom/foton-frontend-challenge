@@ -28,6 +28,8 @@ const Header = styled.header`
 `
 
 const GoBackLink = styled(Link)`
+    width: 90%;
+    margin: 13px auto;
     color:#7154c1;
     text-decoration: none;
     font-size: 1.6rem;
@@ -42,11 +44,16 @@ const GoBackLink = styled(Link)`
 const BookImgWrapper = styled.div`
     background-image: linear-gradient(#FFF6E5, #fff);
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     padding-top: 23px;
     margin-bottom: 80px;
     img{
         width: 65%;
+        -webkit-box-shadow: 1px 7px 7px 7px #D8D8D8;
+	    -moz-box-shadow: 1px 7px 7px 7px #D8D8D8;
+        box-shadow: 1px 7px 7px 7px #D8D8D8;
         animation-duration: ${props => props.duration};  
         animation-timing-function: ${props => props.timingFunction};      
         animation-delay: ${props => props.delay};  
@@ -59,9 +66,6 @@ const BookImgWrapper = styled.div`
         animation-name: ${FilterAnimationImg};
     }
     @media(min-width: 280px){
-        svg{
-            display: none;
-        }
         img{
             position: initial;
             width: 65%;
@@ -81,17 +85,11 @@ const BookImgWrapper = styled.div`
             width: 20%;
             position: initial;
         }
-        svg{
-            display: none;
-        }
     }
     @media(min-width: 380px){
         img{
             width: 45%;
             position: initial;
-        }
-        svg{
-            display: none;
         }
     }
     @media(min-width: 700px){
@@ -99,26 +97,17 @@ const BookImgWrapper = styled.div`
             width: 30%;
             position: initial;
         }
-        svg{
-            display: none;
-        }
     }
     @media(min-width: 900px){
         img{
             width: 20%;
             position: initial;
         }
-        svg{
-            display: none;
-        }
     }
     @media(min-width: 1000px){
         img{
             width: 10%;
             position: initial;
-        }
-        svg{
-            display: none;
         }
     }
 `
@@ -132,10 +121,40 @@ BookImgWrapper.defaultProps = {
     display: 'block'
 };
 
+const BookOptionsWrapper = styled.section`
+    margin-top: 32px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 32px;
+`
+
+const BookOption = styled.a`
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #000;
+    text-decoration: none;
+    font-size: 1.2rem;
+    opacity: 65%;
+    transition: 0.4s;
+    svg {
+        margin-bottom: 13px;
+    }
+
+    &:hover {
+        opacity: 100%;
+    }
+`
 
 const Author = styled.h2`
     margin: 13px 0;
     color:#FF6978;
 `
 
-export { BookImgWrapper, Author, Header, GoBackLink }
+const BookDetails = styled.main`
+    width: 90%;
+    margin: 0 auto;
+`
+
+export { BookImgWrapper, Author, Header, GoBackLink, BookDetails, BookOptionsWrapper, BookOption }
