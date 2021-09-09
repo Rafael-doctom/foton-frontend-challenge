@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import {VscSearch} from "react-icons/vsc"
-import {Header, SearchInputWrapper, SearchInput, SearchIcon, UserWelcomeText, UserName, Books, Book, BookTitle, BookAuthor, BookImage, LinkDiv} from './styles'
+import {Header, SearchInputWrapper, SearchInput, SearchIcon, UserWelcomeText, UserName, Books, Book, BookTitle, BookAuthor, BookImage, LinkDiv, BooksToDiscoverWrapper, BooksCarousel} from './styles'
 
 function Home() {
     const [search, setSearch] = useState("")
@@ -34,7 +34,10 @@ function Home() {
                     <SearchIcon><VscSearch /></SearchIcon>
                     <SearchInput onChange={e => fetchData(e.target.value)} placeholder="Search Book"/>
                 </SearchInputWrapper>
-                {search == "" ? <UserWelcomeText>Hi, <UserName>Mehmed AL Fatih 👋</UserName></UserWelcomeText> : <UserWelcomeText>Results for: {search}</UserWelcomeText>}
+                {search == "" ?
+                    <UserWelcomeText>Hi, <UserName>Mehmed AL Fatih 👋</UserName></UserWelcomeText> 
+                : 
+                    <UserWelcomeText>Results for: {search}</UserWelcomeText>}
             </Header>
             {searchData != undefined && search != "" ? 
                 <Books>
@@ -51,13 +54,17 @@ function Home() {
                     })}
                 </Books>
             :
-                <main>
+                <BooksToDiscoverWrapper>
                     <h2>Discover new book!</h2>
 
-                    <section>
-                        
-                    </section>
-                </main>
+                    <BooksCarousel>
+                        <BookImage src={defaultImg} />
+                        <BookImage src={defaultImg} />
+                        <BookImage src={defaultImg} />
+                        <BookImage src={defaultImg} />
+                        <BookImage src={defaultImg} />
+                    </BooksCarousel>
+                </BooksToDiscoverWrapper>
             }
         </>
     )
