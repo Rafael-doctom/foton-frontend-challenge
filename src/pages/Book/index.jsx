@@ -2,13 +2,37 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BookImgWrapper, Author, Header, GoBackLink, BookDetails, BookOptionsWrapper, BookOption } from "./styles";
 import { BiArrowBack, BiBookOpen } from "react-icons/bi"
+import Skeleton from "react-loading-skeleton";
 import {VscBookmark} from "react-icons/vsc"
 import {FiShare} from "react-icons/fi"
+import { ToastContainer, toast } from 'react-toastify';
 import axios from "axios";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function Book() {
     let { id } = useParams()
     const [bookData, setBookData] = useState(undefined);
+    
+    const sucessNotify = () => toast.success('The book has been saved!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+    });
+
+    const errorNotify = () => toast.error('This book has already been saved', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+    });
 
     const url = `https://www.googleapis.com/books/v1/volumes/${id}`;
 
@@ -27,9 +51,7 @@ function Book() {
             setBookData(undefined)
             console.log(e)
         }
-        
     }, []);
-    console.log(bookData)
     if(bookData != undefined){
         return(
             <>
@@ -47,7 +69,7 @@ function Book() {
                                         <FiShare size="30"/>
                                         <p>Share Book</p>
                                     </BookOption>
-                                    <BookOption>
+                                    <BookOption onClick={sucessNotify}>
                                         <VscBookmark size="30"/>
                                         <p>Save book</p>
                                     </BookOption>
@@ -64,11 +86,22 @@ function Book() {
                     <Author>{bookData.authors || bookData.publisher}</Author>
                     <p>{bookData.description || "This book dont have a description :("}</p>
                 </BookDetails>
+                <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                />
             </>
         )
     } else {
         return(
-            <h1>Loading book...</h1>
+            <h1>Loading Book...</h1>
         )
     }
 }
